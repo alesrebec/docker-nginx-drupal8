@@ -194,4 +194,4 @@ RUN chmod +x /opt/mail.sh \
 
 ADD ./config/entrypoint.sh /entrypoint.sh
 RUN /bin/chmod 775 /entrypoint.sh
-CMD ["/entrypoint.sh"]
+CMD ["/usr/bin/supervisord", "-n"]
