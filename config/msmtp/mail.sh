@@ -24,3 +24,5 @@ password $SMTP_PASSWORD
 
 account default : gmail
 EOF
+
+exit 0

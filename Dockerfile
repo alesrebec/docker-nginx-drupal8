@@ -29,7 +29,7 @@ RUN echo export TERM=linux >> ~/.bashrc
 # Install Basic packages
 RUN apt-get update \
     && apt-get install --assume-yes --no-install-recommends \
-      ca-certificates locales wget git curl zip vim python-pip apt-utils make net-tools \
+      ca-certificates locales wget git curl zip vim python-pip apt-utils make net-tools cron htop \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
@@ -52,7 +52,7 @@ WORKDIR /var/www
 EXPOSE 80
 
 # Expose volumes
-VOLUME ['/var/www', '/opt/ci']
+VOLUME ["'/var/www", "/opt/ci"]
 
 ################################################################################
 ## MySQL Client.
@@ -194,4 +194,4 @@ RUN chmod +x /opt/mail.sh \
 
 ADD ./config/entrypoint.sh /entrypoint.sh
 RUN /bin/chmod 775 /entrypoint.sh
-CMD ["/usr/bin/supervisord", "-n"]
+CMD ["/usr/local/bin/supervisord", "-n"]
