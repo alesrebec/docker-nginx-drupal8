@@ -29,7 +29,7 @@ RUN echo export TERM=linux >> ~/.bashrc
 # Install Basic packages
 RUN apt-get update \
     && apt-get install --assume-yes --no-install-recommends \
-      ca-certificates locales wget git curl zip vim python-pip apt-utils make net-tools cron htop \
+      ca-certificates locales wget git curl zip vim python-pip apt-utils make net-tools cron htop ruby \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
