@@ -75,7 +75,7 @@ RUN echo "deb http://packages.dotdeb.org jessie all" > /etc/apt/sources.list.d/d
         php7.0-xsl php7.0-common php7.0-json php7.0-opcache php7.0-mysql \
         php7.0-phpdbg php7.0-intl php7.0-gd php7.0-imap php7.0-mcrypt \
         php7.0-readline php7.0-ldap php7.0-pgsql php7.0-pspell php7.0-recode \
-        php7.0-tidy php7.0-dev php7.0-curl php7.0-xml php7.0-zip \
+        php7.0-tidy php7.0-dev php7.0-curl php7.0-xml php7.0-zip php7.0-dom php7.0-mbstring \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/* ~/.composer
@@ -124,6 +124,12 @@ RUN wget https://phar.phpunit.de/phpunit.phar \
 
 RUN composer global require drush/drush:8.* \
     && echo export PATH="$HOME/.composer/vendor/bin:/usr/sbin:$PATH" >> ~/.bashrc
+
+################################################################################
+## Drupal Console
+################################################################################
+
+RUN composer require drupal/console:~1.0 --prefer-dist --optimize-autoloader --sort-packages
 
 ################################################################################
 ## Nginx.
