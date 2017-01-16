@@ -129,7 +129,8 @@ RUN composer global require drush/drush:8.* \
 ## Drupal Console
 ################################################################################
 
-RUN composer require drupal/console:~1.0 --prefer-dist --optimize-autoloader --sort-packages
+RUN composer global require drupal/console:@stable \
+    && echo "PATH=$PATH:~/.composer/vendor/bin" >> ~/.bash_profile
 
 ################################################################################
 ## Nginx.
