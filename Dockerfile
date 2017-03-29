@@ -16,7 +16,7 @@ ENV SMTP_PASSWORD secret
 ENV DEBIAN_FRONTEND noninteractive
 
 # Force specific nginx version
-ENV NGINX_VERSION 1.10.2-1~jessie
+ENV NGINX_VERSION 1.10.3-1~jessie
 
 # Fixes some weird terminal issues such as broken clear / CTRL+L
 ENV TERM=linux
